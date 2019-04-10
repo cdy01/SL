@@ -10,4 +10,9 @@ public class SLController {
     public String toIndex(){
         return "index";
     }
+    @RequestMapping("/toIndex2")
+    public String toIndex2(){
+        return "index";
+    }
+
 }
