@@ -22,4 +22,10 @@ public class SLController {
     public String toIndex4(){
         return "index";
     }
+    @RequestMapping("/toIndex5")
+    public String toIndex5(){
+        System.out.println("李文杰是个狗");
+        return "index";
+    }
+
 }
