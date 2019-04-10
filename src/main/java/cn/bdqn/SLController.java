@@ -27,5 +27,9 @@ public class SLController {
         System.out.println("李文杰是个狗");
         return "index";
     }
-
+    @RequestMapping("/toIndex6")
+    public String toIndex6(){
+        System.out.println("陈东阳是个狗");
+        return "index";
+    }
 }
