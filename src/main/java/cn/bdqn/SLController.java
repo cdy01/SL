@@ -31,6 +31,6 @@ public class SLController {
     }
     @RequestMapping("/toUserManagement6")
     public String toIndex6(){
-        return "UserManagement";
+        return "yuyyyy";
     }
 }
