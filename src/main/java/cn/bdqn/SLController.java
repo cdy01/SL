@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SLController {
     @RequestMapping("/toIndex")
     public String toIndex(){
-        return "index";
+        return "login";
     }
     @RequestMapping("/toIndex2")
     public String toIndex2(){
@@ -24,12 +24,8 @@ public class SLController {
     }
     @RequestMapping("/toIndex5")
     public String toIndex5(){
-        System.out.println("李文杰是个狗");
+        System.out.println("");
         return "index";
     }
-    @RequestMapping("/toIndex6")
-    public String toIndex6(){
-        System.out.println("陈东阳是个狗");
-        return "index";
-    }
+
 }
