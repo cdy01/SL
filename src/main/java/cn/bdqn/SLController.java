@@ -20,5 +20,10 @@ public class SLController {
     public String toIndex3(){
         return "UserManagement";
     }
+    /*在首页面点击后台管理跳入用户管理页面*/
+    @RequestMapping("/toUserManagement4")
+    public String toIndex4(){
+        return "UserManagement";
+    }
 
 }
