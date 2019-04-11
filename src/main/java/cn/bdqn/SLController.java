@@ -8,24 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SLController {
     @RequestMapping("/toIndex")
     public String toIndex(){
-        return "login";
+        return "Login";
     }
+    /*跳转到首页面*/
     @RequestMapping("/toIndex2")
     public String toIndex2(){
-        return "index";
+        return "SystemLoginDefaultPage";
     }
-    @RequestMapping("/toIndex3")
+    /*在首页面点击后台管理跳入用户管理页面*/
+    @RequestMapping("/toUserManagement")
     public String toIndex3(){
-        return "index";
-    }
-    @RequestMapping("/toIndex4")
-    public String toIndex4(){
-        return "index";
-    }
-    @RequestMapping("/toIndex5")
-    public String toIndex5(){
-        System.out.println("");
-        return "index";
+        return "UserManagement";
     }
 
 }
