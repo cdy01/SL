@@ -20,5 +20,19 @@ public class SLController {
     public String toIndex3(){
         return "UserManagement";
     }
-
+    /*在首页面点击角色管理跳入角色管理页面*/
+    @RequestMapping("/toRoleManagement")
+    public String toIndex4(){
+        return "RoleManagement";
+    }
+    /*在首页面点击权限管理跳入权限管理页面*/
+    @RequestMapping("/toAccessManagement")
+    public String toIndex5(){
+        return "AccessManagement";
+    }
+    /*在首页面点击权限管理跳入权限管理页面*/
+    @RequestMapping("/toAnnouncementManagement")
+    public String toIndex6(){
+        return "AnnouncementManagement";
+    }
 }
