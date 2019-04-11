@@ -20,7 +20,7 @@ public class SLController {
     public String toIndex3(){
         return "UserManagement";
     }
-    @RequestMapping("/toIndex4")
+    @RequestMapping("/toIndessssx4")
     public String toIndex4(){
         return "index";
     }
