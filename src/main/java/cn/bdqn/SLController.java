@@ -25,5 +25,8 @@ public class SLController {
     public String toIndex4(){
         return "UserManagement";
     }
-
+    @RequestMapping("/toUserManagement5")
+    public String toIndex5(){
+        return "UserManagement";
+    }
 }
