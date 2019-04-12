@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface UserssService {
     List<Userss> findAllUserss();
+    Userss findbyUserssName(String userName);
 }

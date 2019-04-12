@@ -17,4 +17,9 @@ public class UserssServiceImpl implements UserssService {
     public List<Userss> findAllUserss() {
         return userssDao.findAll();
     }
+
+    @Override
+    public Userss findbyUserssName(String userName) {
+        return userssDao.findByUsername(userName);
+    }
 }
