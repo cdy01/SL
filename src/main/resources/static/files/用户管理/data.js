@@ -4,7 +4,7 @@
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "defaultBackgroundImageInfo":{
-    "path":"images/系统登录默认页/bg.jpg",
+    "path":"/images/系统登录默认页/bg.jpg",
     "width":1000,
     "height":750},
   "viewIdToBackgroundImageInfo":{
@@ -67,7 +67,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"resources/images/transparent.gif"}},
+            "normal~":"/resources/images/transparent.gif"}},
 {
           "id":"7223fe25353842738ee3af9c4afae344",
           "label":"菜单",

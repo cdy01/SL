@@ -4,7 +4,7 @@
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "defaultBackgroundImageInfo":{
-    "path":"images/登录/bg.jpg",
+    "path":"/images/登录/bg.jpg",
     "width":1014,
     "height":617},
   "viewIdToBackgroundImageInfo":{
@@ -144,7 +144,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/登录/u4.png"}}]}},
+            "normal~":"/images/登录/u4.png"}}]}},
   "masters":{
 },
   "objectPaths":{
