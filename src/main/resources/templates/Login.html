@@ -71,18 +71,21 @@
 
     <script th:src="@{/resources/scripts/prototype/init.temp.js}"></script>
 
-    <script th:src="@{/files/登录/data.js}"></script>
+    <!--<script th:src="@{/files/登录/data.js}"></script>-->
 
     <script th:src="@{/resources/scripts/prototype/legacy.js}"></script>
 
     <script th:src="@{/resources/scripts/prototype/viewer.js}"></script>
+
+
+    <script th:src="@{/myFile/jquery-1.12.4.js}"></script>
   </head>
   <body>
 
     <!-- Unnamed (HTML Button) -->
     <div id="u0" class="ax_html_button">
-      <!--<input id="u0_input" type="submit" value="登录"/> -->
-	<input id="u0_input" type="submit" value="登录"/>
+      <input id="u0_input" type="button" value="登录"/>
+ <!-- <input id="u0_input" type="button" value="登录" id="dl"/>-->
     </div>
 
     <!-- Unnamed (HTML Button) -->
@@ -93,12 +96,12 @@
 
     <!-- Unnamed (文本框(单行)) -->
     <div id="u2" class="ax_文本框_单行_">
-      <input id="u2_input" type="text" value="admin"/>
+      <input id="u2_input" type="text" value=""/>
     </div>
 
     <!-- Unnamed (文本框(单行)) -->
     <div id="u3" class="ax_文本框_单行_">
-      <input id="u3_input" type="password" value="123456"/>
+      <input id="u3_input" type="password" value=""/>
     </div>
 
     <!-- Unnamed (图片) -->
@@ -107,6 +110,41 @@
       <!-- Unnamed () -->
       <div id="u5" class="text"></div>
     </div>
+<script>
+  $(function(){
+      $("#u0_input").click(function(){
+        var userName=$("#u2_input").val();
+        var userPassword=$("#u3_input").val();
+        alert(userName);
+        alert(userPassword);
+        $.ajax({
+            type:"GET",//请求类型
+            url:"/user/checkLogin",//请求的url
+            data:{name:userName,password:userPassword},//请求参数
+            dataType:"json",//ajax接口（请求url）返回的数据类型
+            success:function(data){//data：返回数据（json对象）
+                alert(data);
+               if(data==yes){
+                    location.href="/user/toIndex2";
+                }else if(data=="no"){
+                    alert("密码错误，请重新输入");
+                    return;
+                }else if(data=="noexist"){
+                  alert("用户名不存在");
+                  return;
+                }else if(data=="excep"){
+                  alert("程序异常，请联系管理员");
+                  return;
+                }
+            },
+            error:function(data){//当访问时候，404，500 等非200的错误状态码
+              alert("出现异常，请联系管理员");
+            }
+        });
+      });
 
+  });
+
+</script>
   </body>
 </html>
