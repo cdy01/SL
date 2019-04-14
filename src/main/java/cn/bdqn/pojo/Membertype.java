@@ -1,15 +1,26 @@
 package cn.bdqn.pojo;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
+@Table(name="MEMBERTYPE")
 public class Membertype {
+
     private Integer memberid;
     private String membername;
+    private Set<Userss> usersses=new HashSet<Userss>();
+
+    @OneToMany(mappedBy = "membertype",cascade = CascadeType.ALL)
+    public Set<Userss> getUsersses() {
+        return usersses;
+    }
+
+    public void setUsersses(Set<Userss> usersses) {
+        this.usersses = usersses;
+    }
 
     @Id
     @Column(name = "MEMBERID", nullable = false, precision = 0)

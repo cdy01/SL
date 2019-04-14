@@ -3,14 +3,15 @@ package cn.bdqn.pojo;
 import org.hibernate.annotations.Proxy;
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name="USERSS")
-/*@Proxy(lazy = false)*/ //关闭延迟加载，不然测试单元总是报错
+@Proxy(lazy = true) //关闭延迟加载，不然测试单元总是报错
 public class Userss {
     private Integer userid;
-    private Integer roleid;
+    /*private Integer roleid;*/
     private Integer referrerid;
     private Integer userstatus;
     private String username;
@@ -29,10 +30,24 @@ public class Userss {
     private Long identitycard;
     private String identitycardz;
     private String identitycardf;
-    private Time lastupdatetime;
+    private Date lastupdatetime;
     private Integer identitysign;
-    private Integer membertypeid;
+
     private Integer basicbank;
+
+    private Membertype membertype;
+
+    private  Role role;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="MEMBERTYPEID")
+    public Membertype getMembertype() {
+        return membertype;
+    }
+
+    public void setMembertype(Membertype membertype) {
+        this.membertype = membertype;
+    }
 
     @Id
     @Column(name = "USERID", nullable = false, precision = 0)
@@ -44,15 +59,6 @@ public class Userss {
         this.userid = userid;
     }
 
-    @Basic
-    @Column(name = "ROLEID", nullable = true, precision = 0)
-    public Integer getRoleid() {
-        return roleid;
-    }
-
-    public void setRoleid(Integer roleid) {
-        this.roleid = roleid;
-    }
 
     @Basic
     @Column(name = "REFERRERID", nullable = true, precision = 0)
@@ -236,11 +242,11 @@ public class Userss {
 
     @Basic
     @Column(name = "LASTUPDATETIME", nullable = true)
-    public Time getLastupdatetime() {
+    public Date getLastupdatetime() {
         return lastupdatetime;
     }
 
-    public void setLastupdatetime(Time lastupdatetime) {
+    public void setLastupdatetime(Date lastupdatetime) {
         this.lastupdatetime = lastupdatetime;
     }
 
@@ -254,15 +260,7 @@ public class Userss {
         this.identitysign = identitysign;
     }
 
-    @Basic
-    @Column(name = "MEMBERTYPEID", nullable = true, precision = 0)
-    public Integer getMembertypeid() {
-        return membertypeid;
-    }
 
-    public void setMembertypeid(Integer membertypeid) {
-        this.membertypeid = membertypeid;
-    }
 
     @Basic
     @Column(name = "BASICBANK", nullable = true, precision = 0)
@@ -273,14 +271,21 @@ public class Userss {
     public void setBasicbank(Integer basicbank) {
         this.basicbank = basicbank;
     }
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="ROLEID")
+    public Role getRole() {
+        return role;
+    }
 
+    public void setRole(Role role) {
+        this.role = role;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Userss userss = (Userss) o;
         return Objects.equals(userid, userss.userid) &&
-                Objects.equals(roleid, userss.roleid) &&
                 Objects.equals(referrerid, userss.referrerid) &&
                 Objects.equals(userstatus, userss.userstatus) &&
                 Objects.equals(username, userss.username) &&
@@ -301,12 +306,12 @@ public class Userss {
                 Objects.equals(identitycardf, userss.identitycardf) &&
                 Objects.equals(lastupdatetime, userss.lastupdatetime) &&
                 Objects.equals(identitysign, userss.identitysign) &&
-                Objects.equals(membertypeid, userss.membertypeid) &&
                 Objects.equals(basicbank, userss.basicbank);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userid, roleid, referrerid, userstatus, username, reallyname, userpassword, usercountpasswword, email, telephone, ecode, address, accountbank, accountnum, accountman, bankcard, banksurplusmoney, identitycard, identitycardz, identitycardf, lastupdatetime, identitysign, membertypeid, basicbank);
+        return Objects.hash(userid, referrerid, userstatus, username, reallyname, userpassword, usercountpasswword, email, telephone, ecode, address, accountbank, accountnum, accountman, bankcard, banksurplusmoney, identitycard, identitycardz, identitycardf, lastupdatetime, identitysign, basicbank);
     }
+
 }

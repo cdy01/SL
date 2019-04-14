@@ -1,20 +1,21 @@
 package cn.bdqn.pojo;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Time;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
+@Table(name = "ROLE")
 public class Role {
     private Integer roleid;
     private String rolename;
     private Integer createmanid;
     private Integer rolestatus;
-    private Time lastupdatetime;
-
+    private Date lastupdatetime;
+    private Set<Userss> usersses=new HashSet<Userss>();
     @Id
     @Column(name = "ROLEID", nullable = false, precision = 0)
     public Integer getRoleid() {
@@ -57,11 +58,11 @@ public class Role {
 
     @Basic
     @Column(name = "LASTUPDATETIME", nullable = true)
-    public Time getLastupdatetime() {
+    public Date getLastupdatetime() {
         return lastupdatetime;
     }
 
-    public void setLastupdatetime(Time lastupdatetime) {
+    public void setLastupdatetime(Date lastupdatetime) {
         this.lastupdatetime = lastupdatetime;
     }
 
@@ -81,4 +82,15 @@ public class Role {
     public int hashCode() {
         return Objects.hash(roleid, rolename, createmanid, rolestatus, lastupdatetime);
     }
+    @OneToMany(mappedBy = "role",cascade =CascadeType.ALL)
+   public Set<Userss> getUsersses() {
+        return usersses;
+    }
+
+    public void setUsersses(Set<Userss> usersses) {
+        this.usersses = usersses;
+    }
+
+
+
 }
